@@ -15,10 +15,10 @@ WORKDIR /flask_api
 COPY ./requirements.txt /flask_api
 RUN pip install -r requirements.txt
 COPY . .
-EXPOSE 5000
+# EXPOSE 5000
 # ENV FLASK_APP=app
-ENV FLASK_RUN_HOST=0.0.0.0
-ENV FLASK_ENV=production
+# ENV FLASK_RUN_HOST=0.0.0.0
+# ENV FLASK_ENV=production
 # ENTRYPOINT ["python"]
 
-CMD ["flask", "run"]
+CMD ["gunicorn", "app:create_app()"]
