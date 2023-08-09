@@ -21,4 +21,5 @@ COPY . .
 # ENV FLASK_ENV=production
 # ENTRYPOINT ["python"]
 
-CMD ["gunicorn", "app:create_app()"]
+CMD ["gunicorn", "--bind", "0.0.0.0:80", "app:create_app()"]
+# CMD ["flask", "run"]
